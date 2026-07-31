@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ============================================================
+       SEO META TAGS
+       These help search engines and social platforms understand
+       what this page is about.
+  ============================================================ -->
+  <title>Quadro Studios — Premium Web Design & Brand Experiences</title>
+  <meta name="description" content="Quadro Studios is a premium web design agency crafting futuristic digital experiences: web design, UI/UX, brand identity, graphic design and SEO." />
+  <meta name="theme-color" content="#0D1117" />
+  <meta property="og:title" content="Quadro Studios — Premium Web Design Agency" />
+  <meta property="og:description" content="Futuristic, award-worthy digital experiences. Web design, UI/UX, branding & SEO." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta name="twitter:card" content="summary" />
+
+  <!-- Favicon — reuses the brand mark so the browser tab looks intentional -->
+  <link rel="icon" href="assets/logo.png" type="image/png" />
+
+  <!-- ============================================================
+       FONTS
+       Manrope for body text, Poppins for bold display headings.
+       Loaded from Google Fonts.
+  ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       LOADING SCREEN
+       A fullscreen overlay shown while the page's assets (fonts,
+       video, images) finish loading. Fades out and removes itself
+       once everything is ready, or after a short safety timeout —
+       whichever comes first, so visitors are never stuck waiting.
+  ============================================================ -->
+  <div class="loading-screen" id="loadingScreen" role="status" aria-live="polite">
+    <div class="loading-screen__content">
+      <img src="assets/logo.png" alt="" class="loading-screen__logo" />
+      <div class="loading-screen__bar">
+        <span class="loading-screen__bar-fill"></span>
+      </div>
+    </div>
+    <span class="visually-hidden">Loading Quadro Studios…</span>
+  </div>
+  <script>
+    // Runs immediately (before the rest of the page parses) so scrolling
+    // is locked from the very first frame, not just once script.js runs.
+    document.body.classList.add('is-loading');
+  </script>
+
+  <!-- ============================================================
+       CUSTOM CURSOR GLOW
+       A soft gold glow that follows the mouse for a premium feel.
+       Purely decorative, hidden on touch devices via CSS.
+  ============================================================ -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION BAR
+       Transparent, frosted-glass navbar that stays fixed at the
+       top of the page. Contains the logo, nav links, and a CTA.
+  ============================================================ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="navbar__logo" aria-label="Quadro Studios — home">
+        <img src="assets/logo.png" alt="Quadro Studios logo" width="140" height="32" />
+      </a>
+
+      <!-- Primary navigation links -->
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <!-- Call to action + mobile menu toggle -->
+      <div class="navbar__actions">
+        <a href="#contact" class="btn btn--glass btn--small">Start a Project</a>
+        <button class="navbar__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile dropdown menu (hidden by default, toggled with JS) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn--gold btn--small">Start a Project</a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION
+       This section introduces Quadro Studios with a fullscreen
+       looping video background, a bold headline, supporting text,
+       two CTA buttons, floating glass cards, and a scroll cue.
+  ============================================================ -->
+  <section class="hero" id="hero">
+
+    <!-- Fullscreen video background. No poster image is set on purpose —
+         stretching the small logo mark to fill the screen via object-fit
+         would look distorted. The .hero background gradient (in the CSS)
+         shows instead until the first video frame paints. -->
+    <video class="hero__video" autoplay muted loop playsinline aria-hidden="true">
+      <source src="assets/background.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Dark gradient overlay for text readability -->
+    <div class="hero__overlay"></div>
+
+    <!-- Hero content -->
+    <div class="hero__content">
+      <p class="eyebrow fade-up">Quadro Studios · Digital Craftsmanship</p>
+
+      <h1 class="hero__title fade-up" style="--delay: 0.1s;">
+        We design the <span class="text-gold">future</span> of digital experiences.
+      </h1>
+
+      <p class="hero__subtitle fade-up" style="--delay: 0.2s;">
+        A premium web design studio crafting cinematic websites, immersive interfaces,
+        and brand identities for companies who refuse to look ordinary.
+      </p>
+
+      <div class="hero__actions fade-up" style="--delay: 0.3s;">
+        <a href="#contact" class="btn btn--gold btn--ripple">
+          Start Your Project
+          <span class="icon btn__icon btn__icon--arrow icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+        </a>
+        <a href="#portfolio" class="btn btn--glass">
+          <span class="icon btn__icon icon--mask" style="--icon-src: url('assets/icons/icon-play.svg');" aria-hidden="true"></span>
+          View Our Work
+        </a>
+      </div>
+
+      <!-- Floating glass stat cards that hover gently above the hero -->
+      <div class="hero__floating-cards" aria-hidden="true">
+        <div class="glass-card hero__float hero__float--one">
+          <span class="hero__float-number">320+</span>
+          <span class="hero__float-label">Projects Delivered</span>
+        </div>
+        <div class="glass-card hero__float hero__float--two">
+          <span class="hero__float-number">98%</span>
+          <span class="hero__float-label">Client Satisfaction</span>
+        </div>
+        <div class="glass-card hero__float hero__float--three">
+          <span class="hero__float-number">4.9★</span>
+          <span class="hero__float-label">Average Rating</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animated scroll indicator -->
+    <a href="#stats" class="scroll-indicator" aria-label="Scroll to next section">
+      <span class="scroll-indicator__mouse">
+        <span class="scroll-indicator__dot"></span>
+      </span>
+      <span class="scroll-indicator__text">Scroll</span>
+    </a>
+  </section>
+
+  <!-- ============================================================
+       TRUSTED BY / STATISTICS SECTION
+       Displays animated counters that count up when scrolled into
+       view: clients served, projects completed, years of
+       experience, and client satisfaction rate.
+  ============================================================ -->
+  <section class="stats" id="stats">
+    <div class="container">
+      <p class="section-label fade-up">
+        <span class="icon section-label__icon icon--mask" style="--icon-src: url('assets/icons/icon-check-circle.svg');" aria-hidden="true"></span>
+        Trusted by ambitious brands worldwide
+      </p>
+
+      <div class="stats__grid">
+        <div class="stats__item fade-up" style="--delay:0s;">
+          <span class="icon stats__icon icon--mask" style="--icon-src: url('assets/icons/icon-user.svg');" aria-hidden="true"></span>
+          <span class="stats__number" data-target="240" data-suffix="+">0</span>
+          <span class="stats__label">Happy Clients</span>
+        </div>
+        <div class="stats__item fade-up" style="--delay:0.1s;">
+          <span class="icon stats__icon icon--mask" style="--icon-src: url('assets/icons/icon-briefcase.svg');" aria-hidden="true"></span>
+          <span class="stats__number" data-target="320" data-suffix="+">0</span>
+          <span class="stats__label">Projects Completed</span>
+        </div>
+        <div class="stats__item fade-up" style="--delay:0.2s;">
+          <span class="icon stats__icon icon--mask" style="--icon-src: url('assets/icons/icon-clock.svg');" aria-hidden="true"></span>
+          <span class="stats__number" data-target="9" data-suffix="+">0</span>
+          <span class="stats__label">Years of Experience</span>
+        </div>
+        <div class="stats__item fade-up" style="--delay:0.3s;">
+          <span class="icon stats__icon icon--mask" style="--icon-src: url('assets/icons/icon-heart.svg');" aria-hidden="true"></span>
+          <span class="stats__number" data-target="98" data-suffix="%">0</span>
+          <span class="stats__label">Satisfaction Rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SERVICES SECTION
+       Presents the five core services offered by Quadro Studios,
+       each inside a premium frosted glass card with a placeholder
+       icon, title and short description.
+  ============================================================ -->
+  <section class="services" id="services">
+    <div class="container">
+      <p class="eyebrow fade-up">What We Do</p>
+      <h2 class="section-title fade-up">Services built for brands that lead.</h2>
+      <p class="section-subtitle fade-up">
+        From first concept to final pixel, we handle every layer of your
+        digital presence with precision and craft.
+      </p>
+
+      <div class="services__grid">
+
+        <!-- Service 1: Web Design -->
+        <div class="glass-card service-card fade-up" style="--delay:0s;">
+          <div class="service-card__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-globe.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Web Design</h3>
+          <p>Custom, high-performance websites engineered to convert visitors into loyal customers.</p>
+        </div>
+
+        <!-- Service 2: UI/UX -->
+        <div class="glass-card service-card fade-up" style="--delay:0.1s;">
+          <div class="service-card__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-pencil-ruler.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Intuitive, human-centered interfaces that feel effortless across every device.</p>
+        </div>
+
+        <!-- Service 3: Graphic Design -->
+        <div class="glass-card service-card fade-up" style="--delay:0.2s;">
+          <div class="service-card__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-palette.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Graphic Design</h3>
+          <p>Polished visual assets for print and digital that elevate every touchpoint.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PORTFOLIO SECTION
+       Showcases selected projects in a responsive grid of cards.
+       Each card has a hover animation and a category tag.
+  ============================================================ -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <p class="eyebrow fade-up">Selected Work</p>
+      <h2 class="section-title fade-up">Projects we're proud to sign.</h2>
+      <p class="section-subtitle fade-up">A glimpse into the digital experiences we've crafted for our clients.</p>
+
+      <div class="portfolio__grid">
+
+        <!-- Replace each assets/portfolio/*.jpg file with your own project image.
+             Keep the filenames the same and the card updates automatically. -->
+
+        <article class="portfolio-card fade-up" style="--delay:0s;">
+          <div class="portfolio-card__media">
+            <img src="assets/portfolio/aether-finance.jpg" alt="Aether Finance project preview" class="portfolio-card__image" loading="lazy" />
+            <span class="portfolio-card__tag">Web Design</span>
+            <span class="portfolio-card__view">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="portfolio-card__body">
+            <h3>Aether Finance</h3>
+            <p>A fintech dashboard redesigned for clarity and trust.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up" style="--delay:0.1s;">
+          <div class="portfolio-card__media">
+            <img src="assets/portfolio/nova-atelier.jpg" alt="Nova Atelier project preview" class="portfolio-card__image" loading="lazy" />
+            <span class="portfolio-card__tag">Web Design</span>
+            <span class="portfolio-card__view">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="portfolio-card__body">
+            <h3>Nova Atelier</h3>
+            <p>A refined online storefront built for a luxury fashion house.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up" style="--delay:0.2s;">
+          <div class="portfolio-card__media">
+            <img src="assets/portfolio/pulse-health.jpg" alt="Pulse Health project preview" class="portfolio-card__image" loading="lazy" />
+            <span class="portfolio-card__tag">UI/UX</span>
+            <span class="portfolio-card__view">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="portfolio-card__body">
+            <h3>Pulse Health</h3>
+            <p>A wellness app interface built for calm and clarity.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up" style="--delay:0.3s;">
+          <div class="portfolio-card__media">
+            <img src="assets/portfolio/orbit-studio.jpg" alt="Orbit Studio project preview" class="portfolio-card__image" loading="lazy" />
+            <span class="portfolio-card__tag">Web Design</span>
+            <span class="portfolio-card__view">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="portfolio-card__body">
+            <h3>Orbit Studio</h3>
+            <p>An immersive site for a creative production house.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up" style="--delay:0.4s;">
+          <div class="portfolio-card__media">
+            <img src="assets/portfolio/terra-goods.jpg" alt="Terra Goods project preview" class="portfolio-card__image" loading="lazy" />
+            <span class="portfolio-card__tag">Graphic Design</span>
+            <span class="portfolio-card__view">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="portfolio-card__body">
+            <h3>Terra Goods</h3>
+            <p>Vibrant packaging-inspired visuals for an organic goods brand.</p>
+          </div>
+        </article>
+
+        <article class="portfolio-card fade-up" style="--delay:0.5s;">
+          <div class="portfolio-card__media">
+            <img src="assets/portfolio/halcyon-records.jpg" alt="Halcyon Records project preview" class="portfolio-card__image" loading="lazy" />
+            <span class="portfolio-card__tag">Graphic Design</span>
+            <span class="portfolio-card__view">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+            </span>
+          </div>
+          <div class="portfolio-card__body">
+            <h3>Halcyon Records</h3>
+            <p>Album art and campaign visuals for an independent label.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PROCESS SECTION
+       A connected, five-step timeline explaining how Quadro
+       Studios takes a project from idea to launch.
+  ============================================================ -->
+  <section class="process" id="process">
+    <div class="container">
+      <p class="eyebrow fade-up">How We Work</p>
+      <h2 class="section-title fade-up">A process refined over hundreds of launches.</h2>
+
+      <div class="process__timeline">
+
+        <div class="process__step fade-up" style="--delay:0s;">
+          <div class="process__marker">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-eye.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Discovery</h3>
+          <p>We learn your business, your audience, and your goals inside and out.</p>
+        </div>
+
+        <div class="process__step fade-up" style="--delay:0.1s;">
+          <div class="process__marker">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-calendar.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Planning</h3>
+          <p>A clear roadmap, sitemap, and content strategy before a single pixel is placed.</p>
+        </div>
+
+        <div class="process__step fade-up" style="--delay:0.2s;">
+          <div class="process__marker">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-layers.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Design</h3>
+          <p>High-fidelity, on-brand designs crafted with meticulous attention to detail.</p>
+        </div>
+
+        <div class="process__step fade-up" style="--delay:0.3s;">
+          <div class="process__marker">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-code.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Development</h3>
+          <p>Clean, performant code that brings the design to life across every device.</p>
+        </div>
+
+        <div class="process__step fade-up" style="--delay:0.4s;">
+          <div class="process__marker">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-rocket.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Launch</h3>
+          <p>A smooth, tested launch followed by ongoing support and optimization.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY CHOOSE US SECTION
+       Highlights four reasons to choose Quadro Studios, each
+       inside a premium card with an animated icon.
+  ============================================================ -->
+  <section class="why-us">
+    <div class="container">
+      <p class="eyebrow fade-up">Why Quadro</p>
+      <h2 class="section-title fade-up">Craft, speed, and results — without compromise.</h2>
+
+      <div class="why-us__grid">
+
+        <div class="glass-card why-us__card fade-up" style="--delay:0s;">
+          <div class="why-us__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-sparkles.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Obsessive Craft</h3>
+          <p>Every pixel, every transition, considered and refined until it feels right.</p>
+        </div>
+
+        <div class="glass-card why-us__card fade-up" style="--delay:0.1s;">
+          <div class="why-us__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-lightning.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Fast Delivery</h3>
+          <p>A streamlined process that ships premium work without sacrificing speed.</p>
+        </div>
+
+        <div class="glass-card why-us__card fade-up" style="--delay:0.2s;">
+          <div class="why-us__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-shield.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Dedicated Support</h3>
+          <p>A real team behind every project, available long after launch day.</p>
+        </div>
+
+        <div class="glass-card why-us__card fade-up" style="--delay:0.3s;">
+          <div class="why-us__icon">
+            <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-trophy.svg');" aria-hidden="true"></span>
+          </div>
+          <h3>Proven Results</h3>
+          <p>Designs grounded in strategy, built to move real business metrics.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS SECTION
+       Glass review cards showing feedback from real clients.
+  ============================================================ -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <p class="eyebrow fade-up">Client Words</p>
+      <h2 class="section-title fade-up">Don't just take our word for it.</h2>
+
+      <div class="testimonials__grid">
+
+        <div class="glass-card testimonial-card fade-up" style="--delay:0s;">
+          <div class="testimonial-card__top">
+            <span class="icon testimonial-card__quote icon--mask" style="--icon-src: url('assets/icons/icon-quote.svg');" aria-hidden="true"></span>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+            </div>
+          </div>
+          <p>"Quadro Studios completely transformed how our brand feels online. The attention to detail is unmatched."</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Amara Chen</span>
+            <span class="testimonial-card__role">CEO, Aether Finance</span>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card fade-up" style="--delay:0.1s;">
+          <div class="testimonial-card__top">
+            <span class="icon testimonial-card__quote icon--mask" style="--icon-src: url('assets/icons/icon-quote.svg');" aria-hidden="true"></span>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+            </div>
+          </div>
+          <p>"Working with this team felt like having an in-house design department that actually understood our vision."</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Marcus Lindqvist</span>
+            <span class="testimonial-card__role">Founder, Nova Atelier</span>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card fade-up" style="--delay:0.2s;">
+          <div class="testimonial-card__top">
+            <span class="icon testimonial-card__quote icon--mask" style="--icon-src: url('assets/icons/icon-quote.svg');" aria-hidden="true"></span>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+              <span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-star.svg');" aria-hidden="true"></span>
+            </div>
+          </div>
+          <p>"Our conversion rate doubled within two months of launch. Simply the best agency we've worked with."</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">Priya Nair</span>
+            <span class="testimonial-card__role">CMO, Pulse Health</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRICING SECTION
+       Three pricing tiers presented as elegant glass cards, with
+       the "Professional" plan highlighted as the recommended tier.
+  ============================================================ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="eyebrow fade-up">Pricing</p>
+      <h2 class="section-title fade-up">Investment plans for every stage.</h2>
+      <p class="section-subtitle fade-up">Transparent pricing. No hidden fees. Cancel or upgrade anytime.</p>
+
+      <div class="pricing__grid">
+
+        <!-- Starter Plan -->
+        <div class="glass-card pricing-card fade-up" style="--delay:0s;">
+          <h3 class="pricing-card__name">Starter</h3>
+          <p class="pricing-card__desc">Perfect for small businesses.</p>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">PKR 25,000–35,000</span>
+          </div>
+          <p class="pricing-card__includes-label">Includes</p>
+          <ul class="pricing-card__features">
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Up to 3 Pages</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Custom UI Design</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Mobile Responsive</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Contact Form</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>WhatsApp Button</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Social Media Links</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Basic Animations</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>2 Revisions</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>5–7 Day Delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn--glass btn--full">Choose Starter</a>
+        </div>
+
+        <!-- Professional Plan (highlighted) -->
+        <div class="glass-card pricing-card pricing-card--featured fade-up" style="--delay:0.1s;">
+          <span class="pricing-card__badge">Most Popular</span>
+          <h3 class="pricing-card__name">Professional</h3>
+          <p class="pricing-card__desc">For businesses that want a stronger online presence.</p>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-amount">PKR 50,000–70,000</span>
+          </div>
+          <p class="pricing-card__includes-label">Includes</p>
+          <p class="pricing-card__includes-note">Everything in Starter, plus:</p>
+          <ul class="pricing-card__features">
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Up to 8 Pages</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Premium UI/UX Design</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Smooth Scroll Animations</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Interactive Components</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Custom Icons</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Image Optimization</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Faster Performance</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>4 Revisions</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>10–14 Day Delivery</li>
+          </ul>
+          <a href="#contact" class="btn btn--gold btn--full">Choose Professional</a>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="glass-card pricing-card fade-up" style="--delay:0.2s;">
+          <h3 class="pricing-card__name">Enterprise</h3>
+          <p class="pricing-card__desc">For brands needing a fully custom website.</p>
+          <div class="pricing-card__price">
+            <span class="pricing-card__price-lead">Starting at</span>
+            <span class="pricing-card__price-amount">PKR 100,000</span>
+          </div>
+          <p class="pricing-card__includes-label">Includes</p>
+          <ul class="pricing-card__features">
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Unlimited Pages</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Fully Custom Design</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Advanced Animations</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Interactive Elements</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Premium Visual Effects</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Priority Support</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Unlimited Revisions</li>
+            <li><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-check.svg');" aria-hidden="true"></span>Flexible Timeline</li>
+          </ul>
+          <a href="#contact" class="btn btn--glass btn--full">Contact Sales</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ SECTION
+       An animated accordion answering common client questions.
+       Built with a <details>/<summary> base and enhanced with CSS
+       transitions and a small JS helper for smooth height animation.
+  ============================================================ -->
+  <section class="faq" id="faq">
+    <div class="container container--narrow">
+      <p class="eyebrow fade-up">Questions</p>
+      <h2 class="section-title fade-up">Frequently asked questions.</h2>
+
+      <div class="accordion" id="accordion">
+
+        <div class="accordion__item fade-up" style="--delay:0s;">
+          <button class="accordion__trigger" aria-expanded="false">
+            How long does a typical project take?
+            <span class="accordion__icon icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-down.svg');" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel">
+            <p>Most projects take between 2 and 6 weeks depending on scope, from initial discovery to final launch.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item fade-up" style="--delay:0.1s;">
+          <button class="accordion__trigger" aria-expanded="false">
+            Do you offer ongoing support after launch?
+            <span class="accordion__icon icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-down.svg');" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel">
+            <p>Yes. Every plan includes a support window post-launch, and we offer extended retainers for continued updates.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item fade-up" style="--delay:0.2s;">
+          <button class="accordion__trigger" aria-expanded="false">
+            Can you work with our existing brand guidelines?
+            <span class="accordion__icon icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-down.svg');" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel">
+            <p>Absolutely. We can design within your existing identity, or help evolve it if you're due for a refresh.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item fade-up" style="--delay:0.3s;">
+          <button class="accordion__trigger" aria-expanded="false">
+            What platforms do you build on?
+            <span class="accordion__icon icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-down.svg');" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel">
+            <p>We build custom code, Webflow, and headless CMS solutions — whichever best fits your team's needs.</p>
+          </div>
+        </div>
+
+        <div class="accordion__item fade-up" style="--delay:0.4s;">
+          <button class="accordion__trigger" aria-expanded="false">
+            How do payments work?
+            <span class="accordion__icon icon icon--mask" style="--icon-src: url('assets/icons/icon-arrow-down.svg');" aria-hidden="true"></span>
+          </button>
+          <div class="accordion__panel">
+            <p>We typically split payment into milestones: on kickoff, at design approval, and on final delivery.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA SECTION
+       A luxurious closing section with a glowing gold button,
+       encouraging visitors to start a project.
+  ============================================================ -->
+  <section class="final-cta" id="contact">
+    <div class="final-cta__glow" aria-hidden="true"></div>
+    <div class="container">
+      <p class="eyebrow fade-up">Let's Build Something Great</p>
+      <h2 class="final-cta__title fade-up">Ready to make your brand unforgettable?</h2>
+      <p class="section-subtitle fade-up">Tell us about your project and we'll get back to you within one business day.</p>
+      <a href="mailto:hello@quadrostudios.com" class="btn btn--gold btn--glow btn--ripple fade-up">
+        Get in Touch
+        <span class="icon btn__icon btn__icon--arrow icon--mask" style="--icon-src: url('assets/icons/icon-arrow-right.svg');" aria-hidden="true"></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       Site-wide footer with logo, navigation, social icons, and
+       copyright notice.
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <img src="assets/logo.png" alt="Quadro Studios logo" width="140" height="140" />
+        <p>Crafting premium digital experiences for brands that lead.</p>
+      </div>
+
+      <nav class="footer__links" aria-label="Footer navigation">
+        <h4>Explore</h4>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+      </nav>
+
+      <nav class="footer__links" aria-label="Company links">
+        <h4>Company</h4>
+        <a href="#faq">FAQ</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="footer__social">
+        <h4>Follow Us</h4>
+        <div class="footer__social-icons">
+          <!-- These use "quadrostudios" as a placeholder handle — replace
+               each URL below with your actual profile/page link. -->
+          <a href="https://instagram.com/quadrostudios.co" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-social-instagram.svg" alt="" class="icon" /></a>
+          <a href="https://www.facebook.com/profile.php?id=61592890222462" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-social-facebook.svg" alt="" class="icon" /></a>
+          <a href="https://youtube.com/@QuadroStudios.official" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-social-youtube.svg" alt="" class="icon" /></a>
+          <a href="https://wa.me/+923280607341" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-social-whatsapp.svg" alt="" class="icon" /></a>
+          <a href="https://www.linkedin.com/in/abdulhadiwebdev" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-social-linkedin.svg" alt="" class="icon" /></a>
+          <a href="https://www.reddit.com/user/quadrostudios/" aria-label="Reddit" target="_blank" rel="noopener noreferrer"><img src="assets/icons/icon-social-reddit.svg" alt="" class="icon" /></a>
+          <a href="mailto:quadrostudios.co@gmail.com" aria-label="Email"><span class="icon icon--mask" style="--icon-src: url('assets/icons/icon-mail.svg');" aria-hidden="true"></span></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 Quadro Studios. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript file -->
+  <script src="js/script.js"></script>
+</body>
+</html>
